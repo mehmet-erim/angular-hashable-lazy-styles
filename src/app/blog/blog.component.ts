@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { link } from 'fs';
 
 @Component({
   selector: 'app-blog',
@@ -10,10 +9,8 @@ export class BlogComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    const lazyCss = document.createElement('link');
-    lazyCss.rel = 'stylesheet';
-    lazyCss.href = 'blog.css';
-
-    document.head.appendChild(lazyCss);
+    import('../../assets/css/blog-css-loader.js').then(() => {
+      // this block executes when blog-css-loader.js is loaded.
+    });
   }
 }
